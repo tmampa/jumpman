@@ -1,5 +1,7 @@
 import Phaser from 'phaser'
 
+const GROUND_KEY = 'ground'
+
 export default class GameScene extends Phaser.Scene
 {
     constructor()
@@ -11,7 +13,7 @@ export default class GameScene extends Phaser.Scene
     {
         this.load.image('sky', '../public/assets/sky.png')
 
-        this.load.image('ground', '../public/assets/platform.png')
+        this.load.image(GROUND_KEY, '../public/assets/platform.png')
         this.load.image('apple', '../public/assets/apple.png')
         this.load.image('bomb', '../public/assets/bomb.png')
 
@@ -32,10 +34,10 @@ export default class GameScene extends Phaser.Scene
     {
         const platforms = this.physics.add.staticGroup()
 
-        platforms.create(400, 568, 'ground').setScale(2).refreshBody()
+        platforms.create(400, 568, GROUND_KEY).setScale(2).refreshBody()
 
-        platforms.create(600, 400, 'ground')
-        platforms.create(50, 250, 'ground')
-        platforms.create(750, 220, 'ground')
+        platforms.create(600, 400, GROUND_KEY)
+        platforms.create(50, 250, GROUND_KEY)
+        platforms.create(750, 220, GROUND_KEY)
     }
 }
