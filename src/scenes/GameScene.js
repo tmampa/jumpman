@@ -15,6 +15,8 @@ export default class GameScene extends Phaser.Scene
         this.player = undefined
         this.cursors = undefined
         this.scoreLabel = undefined
+        this.stars = undefined
+        this.bombSpawner = undefined
     }
 
     preload()
@@ -36,16 +38,18 @@ export default class GameScene extends Phaser.Scene
         this.add.image(400, 300, 'sky')
         const platforms = this.createPlatforms()
         this.player = this.createPlayer()
-        const stars = this.createStars ()
+        this.stars = this.createStars ()
 
         this.scoreLabel = this.createScoreLabel(16, 16, 0)
 
         this.bombSpawner = new BombSpawner(this, BOMB_KEY)
+        const bombsGroup = this.bombSpawner.group
 
         this.physics.add.collider(this.player, platforms)
-        this.physics.add.collider(stars, platforms)
+        this.physics.add.collider(this.stars, platforms)
+        this.physics.add.collider(bombsGroup, platforms)
 
-        this.physics.add.overlap(this.player, stars, this.collectStar, null, this)
+        this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this)
 
         this.cursors = this.input.keyboard.createCursorKeys()
     }
@@ -133,6 +137,14 @@ export default class GameScene extends Phaser.Scene
     {
         star.disableBody(true, true)
         this.scoreLabel.add(10)
+
+        if (this.stars.countActive(true) === 0)
+        {
+            this.stars.children.iterate((child) => {
+                child.enableBody(true, child.x, 0, true, true)
+            })
+        }
+        this.bombSpawner.spawn(player.x)
     }
 
     createScoreLabel(x, y, score)
