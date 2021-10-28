@@ -9,6 +9,7 @@ export default class GameScene extends Phaser.Scene
     {
         super('game-scene')
         this.player = undefined
+        this.cursor = undefined
     }
 
     preload()
@@ -33,6 +34,31 @@ export default class GameScene extends Phaser.Scene
         this.player = this.createPlayer()
 
         this.physics.add.collider(this.player, platforms)
+
+        this.cursors = this.input.keyboard.createCursorKeys()
+    }
+
+    update()
+    {
+        if (this.cursors.left.isDown)
+        {
+            this.player.setVelocityX(-160)
+            this.player.anims.play('left', true)
+        }
+        else if (this.cursors.right.isDown)
+        {
+            this.player.setVelocityX(160)
+            this.player.anims.play('right', true)
+        }
+        else
+        {
+            this.player.setVelocityX(0)
+            this.player.anims.play('turn', true)
+        }
+        if (this.cursors.up.isDown && this.player.body.touching.down)
+        {
+            this.player.setVelocityY(-330)
+        }
     }
 
     createPlatforms()
