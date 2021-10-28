@@ -1,10 +1,18 @@
-# Phaser 3 Webpack Project Template
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+# Jumpman Phaser Game
 
-This has been updated for Phaser 3.50.0 version and above.
+Inspired by the Phaser 3 tutorial game.
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+- Use your hero to collect stars, but with each star collected a bomb is spawn.
+- Try by all means to avoid the bombs or die.
+- Use Up, Left and Right keyboard inputs to move the hero.
+- If you die refresh the page to restart the game
+
+## Built with
+- Javascript ES6
+- Phaser 3
+
 
 ## Requirements
 
@@ -24,26 +32,30 @@ After cloning the repo, run `npm install` from your project directory. Then, you
 
 After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
 
-## Customizing the Template
+## Authors
 
-### Babel
+👤 **Tshephang Mampa**
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+- GitHub: [@tmampa](https://github.com/tmampa)
+- Twitter: [@tshephangm_](https://twitter.com/tshephangm_)
+- LinkedIn: [Tshephang Mampa](https://linkedin.com/in/tshephangmampa)
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+## 🤝 Contributing
 
-### Webpack
+Contributions, issues, and feature requests are welcome!
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+Feel free to check the [issues page](https://github.com/tmampa/to-do-list/issues).
 
-## Deploying Code
+## Show your support
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
+Give a ⭐️ if you like this project!
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
