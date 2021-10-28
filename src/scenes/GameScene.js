@@ -1,9 +1,11 @@
 import Phaser from 'phaser'
 import ScoreLabel from "../ui/ScoreLabel";
+import BombSpawner from "./BombSpawner";
 
 const GROUND_KEY = 'ground'
 const  DUDE_KEY = 'hero'
 const STAR_KEY = 'star'
+const BOMB_KEY = 'bomb'
 
 export default class GameScene extends Phaser.Scene
 {
@@ -21,7 +23,7 @@ export default class GameScene extends Phaser.Scene
 
         this.load.image(GROUND_KEY, '../public/assets/platform.png')
         this.load.image(STAR_KEY, '../public/assets/star.png')
-        this.load.image('bomb', '../public/assets/bomb.png')
+        this.load.image(BOMB_KEY, '../public/assets/bomb.png')
 
         this.load.spritesheet(DUDE_KEY,
             '../public/assets/dude.png',
@@ -37,6 +39,8 @@ export default class GameScene extends Phaser.Scene
         const stars = this.createStars ()
 
         this.scoreLabel = this.createScoreLabel(16, 16, 0)
+
+        this.bombSpawner = new BombSpawner(this, BOMB_KEY)
 
         this.physics.add.collider(this.player, platforms)
         this.physics.add.collider(stars, platforms)
