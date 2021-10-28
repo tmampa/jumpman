@@ -2,6 +2,7 @@ import Phaser from 'phaser'
 
 const GROUND_KEY = 'ground'
 const  DUDE_KEY = 'hero'
+const STAR_KEY = 'star'
 
 export default class GameScene extends Phaser.Scene
 {
@@ -9,7 +10,7 @@ export default class GameScene extends Phaser.Scene
     {
         super('game-scene')
         this.player = undefined
-        this.cursor = undefined
+        this.cursors = undefined
     }
 
     preload()
@@ -17,7 +18,7 @@ export default class GameScene extends Phaser.Scene
         this.load.image('sky', '../public/assets/sky.png')
 
         this.load.image(GROUND_KEY, '../public/assets/platform.png')
-        this.load.image('apple', '../public/assets/apple.png')
+        this.load.image(STAR_KEY, '../public/assets/star.png')
         this.load.image('bomb', '../public/assets/bomb.png')
 
         this.load.spritesheet(DUDE_KEY,
@@ -29,11 +30,13 @@ export default class GameScene extends Phaser.Scene
     create()
     {
         this.add.image(400, 300, 'sky')
-        // this.add.image(400, 300, 'apple')
+        this.add.image(400, 300, STAR_KEY)
         const platforms = this.createPlatforms()
         this.player = this.createPlayer()
+        const stars = this.createStars ()
 
         this.physics.add.collider(this.player, platforms)
+        this.physics.add.collider(stars, platforms)
 
         this.cursors = this.input.keyboard.createCursorKeys()
     }
@@ -100,5 +103,20 @@ export default class GameScene extends Phaser.Scene
             repeat: -1
         })
         return player
+    }
+
+    createStars()
+    {
+        const stars = this.physics.add.group({
+            key: STAR_KEY,
+            repeat: 11,
+            setXY: { x: 12, y: 0, stepX: 70}
+        })
+
+        stars.children.iterate((child) => {
+            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8))
+        })
+
+        return stars
     }
 }
