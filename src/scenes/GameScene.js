@@ -17,6 +17,8 @@ export default class GameScene extends Phaser.Scene
         this.scoreLabel = undefined
         this.stars = undefined
         this.bombSpawner = undefined
+
+        this.gameOver = false
     }
 
     preload()

@@ -2,10 +2,13 @@ import Phaser from 'phaser'
 
 export default class BombSpawner
 {
+    /**
+     * @param {Phaser.Scene} scene
+     */
     constructor(scene, bombKey = 'bomb')
     {
         this.scene = scene
-        this.key - bombKey
+        this.key = bombKey
 
         this._group = this.scene.physics.add.group()
     }
