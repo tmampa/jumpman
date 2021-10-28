@@ -30,13 +30,14 @@ export default class GameScene extends Phaser.Scene
     create()
     {
         this.add.image(400, 300, 'sky')
-        this.add.image(400, 300, STAR_KEY)
         const platforms = this.createPlatforms()
         this.player = this.createPlayer()
         const stars = this.createStars ()
 
         this.physics.add.collider(this.player, platforms)
         this.physics.add.collider(stars, platforms)
+
+        this.physics.add.overlap(this.player, stars, this.collectStar, null, this)
 
         this.cursors = this.input.keyboard.createCursorKeys()
     }
@@ -118,5 +119,10 @@ export default class GameScene extends Phaser.Scene
         })
 
         return stars
+    }
+
+    collectStar(player, star)
+    {
+        star.disableBody(true, true)
     }
 }
