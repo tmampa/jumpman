@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import TitleScene from './scenes/TitleScene.js';
 import GameScene from './scenes/GameScene.js';
 
 const config = {
@@ -12,7 +13,7 @@ const config = {
       gravity: { y: 200 },
     },
   },
-  scene: [GameScene],
+  scene: [TitleScene, GameScene],
 };
 
 export default new Phaser.Game(config);
