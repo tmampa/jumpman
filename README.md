@@ -1,33 +1,38 @@
-# Video Game: Runner
+# Video Game: Jumpman
 Runner is an RPG video game built with [Phaser 3](https://phaser.io), an open source framework for Canvas and WebGL powered games. This game was inspired by [Phaser 3 tutorial: Endless Runner](http://phaser.io/tutorials/making-your-first-phaser-3-game/part1). The main objective was to create a custom role play game.
 
 Assignment [link](https://www.notion.so/Platform-game-4a55a7d1fcc245bcb012c76814764712).
 
 ## Overview
-Runner is a single player based game. The game is intended to determine how fast a player can collect enough stars. The game has infinite levels and the player is  expected to collect 6000 stars to escape.
+Jumpman is a single player based game. The game is intended to determine how fast a player can collect enough stars. 
+The game has infinite levels and the player is  expected to collect 6000 stars to escape.
 
-![Runner](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1597177072/Annotation_2020-08-11_205222_adwggq.png)
+![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-22-17_qnrdqa.png)
 
-![Runner](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1597177069/Annotation_2020-08-11_210641_jqrzhw.png)
+![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-24-57_izsihn.png)
 
-![Runner](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1597177070/Annotation_2020-08-11_210520_qj5ji5.png)
+![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-21-30_vvihwb.png)
 
 ### Live [link](https://runner-rgp-game.netlify.app/)
 
 ## Gameplay
 ###### Player
-Player (Runner) uses the direction keys( up: to jump and move to upper blocks, down: to move down in a faster way, left: to move left, right: to move right). He continues on in quest to collect stars
+Player (Jumpman) uses the direction keys( up: to jump and move to upper blocks, down: to move down in a faster way, 
+left: to move left, right: to move right). He continues on in quest to collect stars while scoring points in the 
+process.
 
 ###### Enemy
 Bombs are released from vertically into game. They will continue bounce.
 
 
 ## Design and Thinking
-In the first day I read alot on the Phaserjs library and I got started with the documentation from the [official docs](https://photonstorm.github.io/phaser3-docs/). It took me a couple of days understanding the concepts.
-On the fifth day, I came up with my game mechanics, including the game name, players, enemy and scoring system. The day after, I starting coding based on my own plan.
+In the first day I went through the Phaser library tutorials and got a better feel of the framework. I then planned 
+out my characters, scenes and music. Used Figma to design the UI buttons. I came up with all the mechanics and 
+physics for the game and then took it in my own direction.
 
 ## Assets
-All sprites, images and sounds used in this game are from [Open Game Art](https://opengameart.org).
+Game sprites, images and sounds used in this game are from [Open Game Art](https://opengameart.org).
+UI buttons and check boxes were design by me in Figma.
 
 ## Technologies used
 * HTML5 and CSS
@@ -49,12 +54,12 @@ All sprites, images and sounds used in this game are from [Open Game Art](https:
 
 Use the [git](https://git-scm.com/downloads) to clone the project to your local machine.
 ```sh
-$ git clone https://github.com/Elijahscriptdev/Runner.git
+$ git clone https://github.com/tmampa/jumpman.git
 ```
 
 Navigate to the extracted folder
 ```sh 
-cd Runner
+cd Jumpman
 ```
 
 Install the dependencies and modules
@@ -76,15 +81,16 @@ $ npm run test
 
 ## Author
 
-👤 **Elijah Obominuru**
+👤 **Tshephang Mampa**
 
-[Github](https://github.com/Elijahscriptdev) | [Twitter](https://twitter.com/ElijahObominuru) | [LinkedIn](https://www.linkedin.com/in/elijah-obominuru-0b730b143/)
-- Email: elijahobominuru@gmail.com
+- GitHub: [@tmampa](https://github.com/tmampa)
+- Twitter: [@tshephangm_](https://twitter.com/tshephangm_)
+- LinkedIn: [Tshephang Mampa](https://linkedin.com/in/tshephangmampa)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
-You can open a new issue on the [issues page](https://github.com/Elijahscriptdev/Runner/issues).
+You can open a new issue on the [issues page](https://github.com/tmampa/jumpman/issues).
 
 ## Show your support
 
