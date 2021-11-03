@@ -33,7 +33,6 @@ export default class CreditsScene extends Phaser.Scene {
       fill: '#fff',
     });
 
-
     this.titleButton = new Button(this, config.width / 2, 500, 'blueButton1', 'blueButton2', 'Back', 'Title');
     this.titleButton.on(
       'pointerdown',

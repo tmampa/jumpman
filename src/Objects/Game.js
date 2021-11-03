@@ -27,5 +27,4 @@ class Game extends Phaser.Game {
   }
 }
 
-
 export default Game;

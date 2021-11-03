@@ -10,7 +10,6 @@ export default class EnterName extends Phaser.Scene {
     super('EnterName');
   }
 
-
   create() {
     this.LeaderBoard = new LeaderBoard();
     this.add.image(400, 300, 'bg');
@@ -25,7 +24,6 @@ export default class EnterName extends Phaser.Scene {
     this.errorText.style.display = 'none';
     this.submit = DomElements.createDomElement('button', 'type', 'submit');
     this.submit.textContent = 'START';
-
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
