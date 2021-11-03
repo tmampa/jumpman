@@ -1,19 +1,30 @@
-import Phaser from 'phaser';
-import TitleScene from './scenes/TitleScene.js';
-import GameScene from './scenes/GameScene.js';
+import 'phaser';
+import config from './config/config';
+import GameScene from './Scenes/GameScene';
+import BootScene from './Scenes/BootScene';
+import PreloaderScene from './Scenes/PreloaderScene';
+import TitleScene from './Scenes/TitleScene';
+import OptionsScene from './Scenes/OptionsScene';
+import CreditsScene from './Scenes/CreditsScene';
+import SubmitScoreScene from './Scenes/SubmitScoreScene'
+import ScoreScene from './Scenes/ScoreScene'
+import Model from './Model';
 
-const config = {
-  type: Phaser.AUTO,
-  parent: 'phaser-example',
-  width: 800,
-  height: 600,
-  physics: {
-    default: 'arcade',
-    arcade: {
-      gravity: { y: 200 },
-    },
-  },
-  scene: [TitleScene, GameScene],
-};
+class Game extends Phaser.Game {
+  constructor () {
+    super(config);
+    const model = new Model();
+    this.globals = { model, bgMusic: null };
+    this.scene.add('Boot', BootScene);
+    this.scene.add('Preloader', PreloaderScene);
+    this.scene.add('Title', TitleScene);
+    this.scene.add('Options', OptionsScene);
+    this.scene.add('Credits', CreditsScene);
+    this.scene.add('Game', GameScene);
+    this.scene.add('SubmitScore', SubmitScoreScene);
+    this.scene.add('Score', ScoreScene);
+    this.scene.start('Boot');
+  }
+}
 
-export default new Phaser.Game(config);
+window.game = new Game();
