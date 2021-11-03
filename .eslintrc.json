@@ -71,6 +71,7 @@
       "no-new": "off",
       "implicit-arrow-linebreak": "off",
       "no-eval": "off",
+      "no-multiple-empty-lines": "off",
       "radix": "off",
       "import/no-unresolved":"off"
     }
