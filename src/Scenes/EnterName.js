@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import Phaser from 'phaser';
 import DomElements from '../dom/DomElements';

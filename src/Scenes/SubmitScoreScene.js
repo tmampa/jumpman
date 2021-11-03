@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 export default class SubmitScoreScene extends Phaser.Scene {
   constructor() {
@@ -31,7 +31,7 @@ export default class SubmitScoreScene extends Phaser.Scene {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        console.log(data);
         this.scene.start('Score');
       });
   }

@@ -16,7 +16,12 @@
       "arrow-parens": "off",
       "no-underscore-dangle":"off",
       "no-unused-expressions":"off",
+      "no-unused-vars": "off",
+      "no-console": "off",
       "class-methods-use-this":"off",
+      "camelcase":"off",
+      "max-len": "off",
+      "no-plusplus": "off",
       "import/no-unresolved":"off"
     }
   }

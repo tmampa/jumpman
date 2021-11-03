@@ -10,21 +10,19 @@ let gameOver = false;
 let scoreText;
 
 export default class GameScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('Game');
   }
 
-  preload ()
-{
+  preload() {
     this.load.image('sky', 'assets/sky.png');
     this.load.image('ground', 'assets/platform6.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
-}
+  }
 
-create ()
-{
+  create() {
     //  A simple background for our game
     this.add.image(400, 300, 'sky');
 
@@ -49,23 +47,23 @@ create ()
 
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
-        key: 'left',
-        frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
-        frameRate: 10,
-        repeat: -1
+      key: 'left',
+      frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+      frameRate: 10,
+      repeat: -1,
     });
 
     this.anims.create({
-        key: 'turn',
-        frames: [ { key: 'dude', frame: 4 } ],
-        frameRate: 20
+      key: 'turn',
+      frames: [{ key: 'dude', frame: 4 }],
+      frameRate: 20,
     });
 
     this.anims.create({
-        key: 'right',
-        frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
-        frameRate: 10,
-        repeat: -1
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+      frameRate: 10,
+      repeat: -1,
     });
 
     //  Input Events
@@ -73,16 +71,14 @@ create ()
 
     //  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
     stars = this.physics.add.group({
-        key: 'star',
-        repeat: 11,
-        setXY: { x: 12, y: 0, stepX: 70 }
+      key: 'star',
+      repeat: 11,
+      setXY: { x: 12, y: 0, stepX: 70 },
     });
 
-    stars.children.iterate(function (child) {
-
-        //  Give each star a slightly different bounce
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
+    stars.children.iterate((child) => {
+      //  Give each star a slightly different bounce
+      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });
 
     bombs = this.physics.add.group();
@@ -95,77 +91,62 @@ create ()
     this.physics.add.collider(stars, platforms);
     this.physics.add.collider(bombs, platforms);
 
-    //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     this.physics.add.overlap(player, stars, this.collectStar, null, this);
 
     this.physics.add.collider(player, bombs, this.hitBomb, null, this);
-}
+  }
 
-update () {
-    if (gameOver)
-    {
-        gameOver = false;
-        localStorage.setItem('score', score);
-        this.scene.start('SubmitScore');
-        
+  update() {
+    if (gameOver) {
+      gameOver = false;
+      localStorage.setItem('score', score);
+      this.scene.start('SubmitScore');
     }
 
-    if (cursors.left.isDown)
-    {
-        player.setVelocityX(-160);
+    if (cursors.left.isDown) {
+      player.setVelocityX(-160);
 
-        player.anims.play('left', true);
-    }
-    else if (cursors.right.isDown)
-    {
-        player.setVelocityX(160);
+      player.anims.play('left', true);
+    } else if (cursors.right.isDown) {
+      player.setVelocityX(160);
 
-        player.anims.play('right', true);
-    }
-    else
-    {
-        player.setVelocityX(0);
+      player.anims.play('right', true);
+    } else {
+      player.setVelocityX(0);
 
-        player.anims.play('turn');
+      player.anims.play('turn');
     }
 
-    if (cursors.up.isDown && player.body.touching.down)
-    {
-        player.setVelocityY(-330);
+    if (cursors.up.isDown && player.body.touching.down) {
+      player.setVelocityY(-330);
     }
-}
+  }
 
-collectStar (player, star)
-{
+  collectStar(player, star) {
     star.disableBody(true, true);
 
     //  Add and update the score
     score += 10;
 
-    scoreText.setText('Score: ' + score);
+    scoreText.setText(`Score: ${score}`);
 
-    if (stars.countActive(true) === 0)
-    {
-        //  A new batch of stars to collect
-        stars.children.iterate(function (child) {
+    if (stars.countActive(true) === 0) {
+      //  A new batch of stars to collect
+      stars.children.iterate((child) => {
+        child.enableBody(true, child.x, 0, true, true);
+      });
 
-            child.enableBody(true, child.x, 0, true, true);
+      const x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-        });
-
-        let x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-        let bomb = bombs.create(x, 16, 'bomb');
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(true);
-        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = false;
-
+      const bomb = bombs.create(x, 16, 'bomb');
+      bomb.setBounce(1);
+      bomb.setCollideWorldBounds(true);
+      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+      bomb.allowGravity = false;
     }
-}
+  }
 
-hitBomb (player, bomb)
-{
+  hitBomb(player, bomb) {
     this.physics.pause();
 
     player.setTint(0xff0000);
@@ -173,6 +154,5 @@ hitBomb (player, bomb)
     player.anims.play('turn');
 
     gameOver = true;
-
+  }
 }
-};
