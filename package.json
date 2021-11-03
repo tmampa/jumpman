@@ -35,6 +35,6 @@
   "dependencies": {
     "debug": "^4.3.2",
     "jest-canvas-mock": "^2.2.0",
-    "phaser": "^3.3.0"
+    "phaser": "^3.55.2"
   }
 }
