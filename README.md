@@ -13,7 +13,7 @@ The game has infinite levels and the player is  expected to collect 6000 stars t
 
 ![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-21-30_vvihwb.png)
 
-### Live [link](https://runner-rgp-game.netlify.app/)
+### Live [link](https://tmampa.github.io/jumpman/)
 
 ## Gameplay
 ###### Player
