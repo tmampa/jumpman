@@ -1,6 +1,6 @@
 // import SubmitScoreScene from '../src/Scenes/SubmitScoreScene'
-import Game from '../src/Objects/Game';
-import config from '../src/config/config';
+import Game from '../../src/Objects/Game';
+import config from '../../src/config/config';
 
 beforeAll(() => {
   // eslint-disable-next-line no-use-before-define
