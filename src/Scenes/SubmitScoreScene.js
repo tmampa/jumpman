@@ -14,11 +14,11 @@ export default class SubmitScoreScene extends Phaser.Scene {
     submitButton.addEventListener('click', this.submitScore.bind(this));
   }
 
-  submitScore(event) {
+  async submitScore(event) {
     event.preventDefault();
     event.currentTarget.disabled = true;
     const user = document.getElementById('name').value;
-    fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${this.gameID}/scores/`, {
+    await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${this.gameID}/scores/`, {
       method: 'post',
       body: JSON.stringify({
         user,
