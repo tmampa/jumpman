@@ -1,49 +1,108 @@
-# Phaser 3 Webpack Project Template
+# Video Game: Jumpman
+Runner is an RPG video game built with [Phaser 3](https://phaser.io), an open source framework for Canvas and WebGL powered games. This game was inspired by [Phaser 3 tutorial: Endless Runner](http://phaser.io/tutorials/making-your-first-phaser-3-game/part1). The main objective was to create a custom role play game.
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+Assignment [link](https://www.notion.so/Platform-game-4a55a7d1fcc245bcb012c76814764712).
 
-This has been updated for Phaser 3.50.0 version and above.
+## Overview
+Jumpman is a single player based game. The game is intended to determine how fast a player can collect enough stars. 
+The game has infinite levels and the player is  expected to collect 6000 stars to escape.
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-22-17_qnrdqa.png)
 
-## Requirements
+![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-24-57_izsihn.png)
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+![Runner](https://res.cloudinary.com/dlxmthxth/image/upload/v1635949520/jumpman-game/Screenshot_from_2021-11-03_16-21-30_vvihwb.png)
 
-## Available Commands
+### Live [link](https://tmampa.github.io/jumpman/)
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+## Gameplay
+###### Player
+Player (Jumpman) uses the direction keys( up: to jump and move to upper blocks, down: to move down in a faster way, 
+left: to move left, right: to move right). He continues on in quest to collect stars while scoring points in the 
+process.
 
-## Writing Code
+###### Enemy
+Bombs are released from vertically into game. They will continue bounce.
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
+## Design and Thinking
+In the first day I went through the Phaser library tutorials and got a better feel of the framework. I then planned 
+out my characters, scenes and music. Used Figma to design the UI buttons. I came up with all the mechanics and 
+physics for the game and then took it in my own direction.
 
-## Customizing the Template
+## Assets
+Game sprites, images and sounds used in this game are from [Open Game Art](https://opengameart.org).
+UI buttons and check boxes were design by me in Figma.
 
-### Babel
+## Technologies used
+* HTML5 and CSS
+* JavaScript
+* Phaser 3
+* Webpack
+* Eslint
+* Babel
+* Jest
+* Github
+* [Netlify](https://app.netlify.com/) for the deployment
+* [Leaderboard API service](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3) for the leaderboard
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+## Future work
+- Adding more levels
+- Defence mechanisms
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+## Project Setup
 
-### Webpack
+Use the [git](https://git-scm.com/downloads) to clone the project to your local machine.
+```sh
+$ git clone https://github.com/tmampa/jumpman.git
+```
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+Navigate to the extracted folder
+```sh 
+cd Jumpman
+```
 
-## Deploying Code
+Install the dependencies and modules
+```sh
+$ npm install
+```
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
+### Usage
+```sh
+$ npm run start
+```
+This will open the app at port-8080. If it doesn't open, visit ```http://localhost:8080```
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+### Testing
+
+```sh
+$ npm run test
+```
+
+## Author
+
+👤 **Tshephang Mampa**
+
+- GitHub: [@tmampa](https://github.com/tmampa)
+- Twitter: [@tshephangm_](https://twitter.com/tshephangm_)
+- LinkedIn: [Tshephang Mampa](https://linkedin.com/in/tshephangmampa)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+You can open a new issue on the [issues page](https://github.com/tmampa/jumpman/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgements
+- [Microverse](https://www.microverse.org/)
+- [The Odin Project](https://www.theodinproject.com/)
+- [Freecodecamp](http://freecodecamp.org/)
+- [Phaser](https://phaser.io)
+- [Open Game Art](https://opengameart.org)
+
+## 📝 License
+
+This project is licensed under MIT license - see [LICENSE](/LICENSE) for more details.
